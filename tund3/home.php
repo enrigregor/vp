@@ -29,12 +29,16 @@
  $conn->close();
 	 
 $username = "Enri ja nii ongi";
-$fulltimenow = date("d.m.Y H:i:s");
+$yearnow = date("Y");
+$datenow = date("d.");
+$clocknow = date("H:i:s");
+$monthnow = date("n"); 
+$weekdaynow = date("N");
 $hournow = date("H");
 $partofday = "lihtsalt aeg";
 $weekdaynameset = ["esmaspäev", "teisipäev", "kolmapäev", "neljapäev", "reede", "laupäev", "pühapäev"];
 //echo $weekdaynameset[1];
-$weekdaynow = date("H");
+$weekdaynow = date("N");
 
 $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
 if ($hournow < 7) {
@@ -105,21 +109,18 @@ if ($completion >= 100) {
   <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
 <p>Leht on loodud veebiprogrammeerimise kurusse raames <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis ning mulle meeldib dabi visata
 <p>Kui sa seda loed, siis tea, et p��sesin ligi oma webi failile ilma oma kodust ega mugavustest lahkumata! Lisaks tahaks veel �elda, et sinul kui lugejal l�heb h�sti! See tekst ka �htlasi t�hendab, et sain oma koduse �lesandega hakkama! K�ige l�puks mainin, et Alu Kuningriik on k�ige v�imsaim!!!</p>
-<p>Lehe avamise hetkel oli: <?php echo $weekdaynameset [$weekdaynow - 1] .", " .$fulltimenow; ?>. </p>
+<p>Lehe avamise hetkel oli: <?php echo $weekdaynameset[$weekdaynow - 1] .", " .$datenow ." " .$monthnameset[$monthnow - 1] ." " .$yearnow .", kell " .$clocknow; ?></p>
 <p><?php echo "Parajasti on " .$partofday ."."; ?></p>
 <p><?php echo "Esimene semester kestab " .$semesterdurationdays ." päeva."; ?></p>
 <p><?php echo "Möödunud päevad pärast semestri algust: " .$semestercurrentdays ."."; ?></p>
 <p><?php echo "Teie õppetöö läbitud: " .$completion ."%"; ?></p>
+<a href="mottedjatujud.php">Tule siia ja kirjuta oma mõtted!</a>
+<hr>
+<a href="vastused.php">Siit saad lugeda inimeste kirjutatud mõtteid</a>
 <hr>
 <?php echo $imghtml; ?>
 <hr>
-<form method="POST">
-  <label>Kirjutage oma esimene pähe tulev mõte!</label>
-  <input type="text" name="ideainput" placeholder="mõttekoht">
-  <input type="submit" name="ideasubmit" value="Saada mõte teele!">
-</form>
-<hr>
-<?php echo $ideahtml; ?>
+
 
 </body>
 </html>
