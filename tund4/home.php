@@ -3,7 +3,7 @@
  require("../../../config.php");
 
 	 
-$username = "Enri ja nii ongi";
+$username = "Enri Gregor";
 $yearnow = date("Y");
 $datenow = date("d.");
 $clocknow = date("H:i:s");
@@ -87,15 +87,18 @@ if ($completion >= 100) {
   <h1><?php echo $username; ?></h1>
   <p>See veebileht on loodud õppetöö käigus ning ei sisalda mingit tõsiseltvõetavat sisu!</p>
 <p>Leht on loodud veebiprogrammeerimise kurusse raames <a href="http://www.tlu.ee">Tallinna Ülikooli</a> Digitehnoloogiate instituudis ning mulle meeldib dabi visata
-<p>Kui sa seda loed, siis tea, et p��sesin ligi oma webi failile ilma oma kodust ega mugavustest lahkumata! Lisaks tahaks veel �elda, et sinul kui lugejal l�heb h�sti! See tekst ka �htlasi t�hendab, et sain oma koduse �lesandega hakkama! K�ige l�puks mainin, et Alu Kuningriik on k�ige v�imsaim!!!</p>
+<p>Kui sa seda loed, siis tea, et pääsesin ligi oma webi failile ilma oma kodust ega mugavustest lahkumata! Lisaks tahaks veel öelda, et loodan sinul kui lugejal läheb hästi! See tekst ka ühtlasi tähendab, et sain oma koduse ülesandega hakkama! Kõige lõpuks mainin, et Alu Kuningriik on kõige võimsaim!!!</p>
 <p>Lehe avamise hetkel oli: <?php echo $weekdaynameset[$weekdaynow - 1] .", " .$datenow ." " .$monthnameset[$monthnow - 1] ." " .$yearnow .", kell " .$clocknow; ?></p>
 <p><?php echo "Parajasti on " .$partofday ."."; ?></p>
 <p><?php echo "Esimene semester kestab " .$semesterdurationdays ." päeva."; ?></p>
 <p><?php echo "Möödunud päevad pärast semestri algust: " .$semestercurrentdays ."."; ?></p>
 <p><?php echo "Teie õppetöö läbitud: " .$completion ."%"; ?></p>
-<a href="mottedjatujud.php">Tule siia ja kirjuta oma mõtted!</a>
-<hr>
-<a href="vastused.php">Siit saad lugeda inimeste kirjutatud mõtteid</a>
+<ul>
+     <li><a href="mottedjatujud.php">Tule siia ja kirjuta oma mõtted!</a> </li>
+     <li><a href="vastused.php">Siit saad lugeda inimeste kirjutatud mõtteid</a> </li>
+     <li><a href="filmidenim.php">Filmide nimekiri</a> </li>
+	 <li><a href="addfilms.php">Filmi info lisamine</a> </li>
+</ul>
 <hr>
 <?php echo $imghtml; ?>
 <hr>
