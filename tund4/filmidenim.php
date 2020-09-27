@@ -3,7 +3,6 @@ require("../../../config.php");
 $username = "Enri Gregor";
 
 require("fnc_film.php");
-
 //loen andmebaasist filmide info
 $filmhtml = readfilms();
 require("header.php");

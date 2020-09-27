@@ -94,7 +94,8 @@ if ($completion >= 100) {
 <p><?php echo "Möödunud päevad pärast semestri algust: " .$semestercurrentdays ."."; ?></p>
 <p><?php echo "Teie õppetöö läbitud: " .$completion ."%"; ?></p>
 <ul>
-     <li><a href="mottedjatujud.php">Tule siia ja kirjuta oma mõtted!</a> </li>
+     <li><a href="logindata.php">Loo omale kasutaja!</a> </li>
+	 <li><a href="mottedjatujud.php">Tule siia ja kirjuta oma mõtted!</a> </li>
      <li><a href="vastused.php">Siit saad lugeda inimeste kirjutatud mõtteid</a> </li>
      <li><a href="filmidenim.php">Filmide nimekiri</a> </li>
 	 <li><a href="addfilms.php">Filmi info lisamine</a> </li>
