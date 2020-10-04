@@ -103,7 +103,7 @@ if(isset($_POST["accountdatasubmit"])) {
  
 
 ?>
-<a href="home.php">Tagasi kodulehele</a>
+<a href="page.php">Tagasi kodulehele</a>
 <hr>
 <p>Uue kasutaja loomine</p>
 <br>

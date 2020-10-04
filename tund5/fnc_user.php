@@ -42,11 +42,14 @@ function signin($email, $password){
 				exit();
 			} else{
 				$result = "Kahjuks vale parool!";
+			}
 		} else{
 			$result = "Kasutajat (" .$email .") pole olemas!";
 		}
+		
 	} else {
 		$result = $stmt->error;
+	}
 	
 	$stmt->close();
 	$conn->close();
