@@ -1,9 +1,17 @@
 <?php
  //var_dump($_POST);
- require("../../../config.php");
+session_start();
+require("../../../config.php");
+require("fnc_main.php");
+require("fnc_user.php");
+$email="";
+$password="";
+$emailerror="";
+$passworderror="";
+$result="";
 
 	 
-$username = "Enri Gregor";
+$username = "";
 $yearnow = date("Y");
 $datenow = date("d.");
 $clocknow = date("H:i:s");
@@ -14,6 +22,26 @@ $partofday = "lihtsalt aeg";
 $weekdaynameset = ["esmaspäev", "teisipäev", "kolmapäev", "neljapäev", "reede", "laupäev", "pühapäev"];
 //echo $weekdaynameset[1];
 $weekdaynow = date("N");
+
+if(isset($_POST["accountlogin"])) {
+	if (!empty($_POST["emailinput"])){
+		$email = filter_var($_POST["emailinput"], FILTER_SANITIZE_EMAIL);
+		if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			$email = filter_var($email, FILTER_VALIDATE_EMAIL);
+		} else {
+		  $emailerror = "Palun sisesta õige kujuga e-postiaadress!";
+		}
+	}
+	if(empty($_POST["passwordinput"])) {
+		$passworderror = "Palun sisestage oma salasõna!";
+	} else {
+		$password = ($_POST["passwordinput"]);
+	}
+	if(empty ($emailerror) and empty ($passworderror)){
+		$result = signin($email, $password);
+	}		
+}
+
 
 
 $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
@@ -94,12 +122,21 @@ if ($completion >= 100) {
 <p><?php echo "Möödunud päevad pärast semestri algust: " .$semestercurrentdays ."."; ?></p>
 <p><?php echo "Teie õppetöö läbitud: " .$completion ."%"; ?></p>
 <ul>
-	 <li><a href="mottedjatujud.php">Tule siia ja kirjuta oma mõtted!</a> </li>
-     <li><a href="vastused.php">Siit saad lugeda inimeste kirjutatud mõtteid</a> </li>
-     <li><a href="filmidenim.php">Filmide nimekiri</a> </li>
-	 <li><a href="addfilms.php">Filmi info lisamine</a> </li>
-</ul>
+     <li><a href="logindata.php">Loo omale kasutaja!</a> </li>
 <hr>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+   <label for="emailinput">Email</label>
+   <input type="email" name="emailinput" id="emailinput" value="<?php echo $email; ?>"><span><?php echo $emailerror; ?></span>
+   <br>
+   <br>
+   <label for="passwordinput">Salasõna</label>
+   <input type="password" name="passwordinput" id="passwordinput"><span><?php echo $passworderror; ?></span>
+   <br>
+   <br>
+   <input type="submit" name="accountlogin" value="Sisene!">
+   <br> <?php echo $result; ?>
+   <br>
+</form> 
 <?php echo $imghtml; ?>
 <hr>
 
