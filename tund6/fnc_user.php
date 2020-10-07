@@ -90,7 +90,7 @@ function storeuserprofile($description, $bgcolor, $txtcolor){
 		$stmt->bind_param("isss" $_SESSION["userid"], $description, $bgcolor, $txtcolor);
 			}
 	if($stmt->execute()){
-		$notice = "Profiil salvestatud!";
+		$notice = "ok";
 	} else {
 		$notice = "Profiili salvestamine ebaõnnestus!";
 	}
