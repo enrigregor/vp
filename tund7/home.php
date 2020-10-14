@@ -40,6 +40,7 @@
      <li><a href="filmidenim.php">Filmide nimekiri</a> </li>
 	 <li><a href="addfilms.php">Filmi info lisamine</a> </li>
 	 <li><a href="addfilmrelations.php">Filmiinfo seoste lisamine</a></li>
+	 <li><a href="filmidenimpersons.php">Inimesed filmides</a></li>
 	 <li><a href="userprofile.php">Minu kasutajaprofiil</a></li>
 </ul>
 <hr>

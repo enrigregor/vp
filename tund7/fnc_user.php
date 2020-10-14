@@ -73,7 +73,7 @@ function signin($email, $password){
 }
 
 function storeuserprofile($description, $bgcolor, $txtcolor){
-	$notice = null
+	$notice = null;
 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
 	$stmt = $conn->prepare("SELECT vpuserprofiles_id FROM vpuserprofiles WHERE userid = ?");
 	echo $conn->error;
@@ -83,11 +83,11 @@ function storeuserprofile($description, $bgcolor, $txtcolor){
 		$stmt->close();
 		$stmt = $conn->prepare("UPDATE vpuserprofiles_id SET description = ?, bgcolor = ?, txtcolor = ? WHERE userid = ?");
 		echo $conn->error;
-		$stmt->$bind_param("sssi" $description, $bgcolor, $txtcolor, $_SESSION["userid"]);
+		$stmt->$bind_param("sssi", $description, $bgcolor, $txtcolor, $_SESSION["userid"]);
 	} else {
 		$stmt = $conn->prepare("INSERT INTO vpuserprofiles (userid, description, bgcolor, txtcolor) VALUES(?, ?, ?, ?)");
 		echo $conn->error;
-		$stmt->bind_param("isss" $_SESSION["userid"], $description, $bgcolor, $txtcolor);
+		$stmt->bind_param("isss", $_SESSION["userid"], $description, $bgcolor, $txtcolor);
 			}
 	if($stmt->execute()){
 		$notice = "ok";
@@ -100,7 +100,7 @@ function storeuserprofile($description, $bgcolor, $txtcolor){
 }
 
 function readuserdescription(){
-	$notice = null
+	$notice = null;
 	$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
 	$stmt-> $conn->prepare("SELECT description FROM vpuserprofiles WHERE userid = ?");
 	echo $conn->error;
