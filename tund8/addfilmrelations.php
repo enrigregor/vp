@@ -20,6 +20,9 @@
   $selectedgenre = "";
   $studionotice = "";
   $selectedstudio = "";
+  $positionnotice = "";
+  $selectedposition = "";
+  $selectedperson = "";
   
   if(isset($_POST["filmstudiorelationssubmit"])){
 	  if(!empty($_POST["filminput"])){
@@ -53,9 +56,37 @@
 		$genrenotice = storenewgenrerelation($selectedfilm, $selectedgenre);
 	}
   }
+  
+    if(isset($_POST["filmpositionrelationsubmit"])){
+	//$selectedfilm = $_POST["filminput"];
+		if(!empty($_POST["filminput"])){
+			$selectedfilm = intval($_POST["filminput"]);
+		} else {
+			$positionnotice = "Vali film!";
+		}
+		if(!empty($_POST["filmpersoninput"])){
+			$selectedperson = intval($_POST["filmpersoninput"]);
+		} else {
+			$positionnotice .= " Vali inimene!";
+		}
+		if(!empty ($_POST["filmpositioninput"])){
+			$selectedposition = intval($_POST["filmpositioninput"]);
+		} else{
+			$positionnotice .= "Vali roll!";
+		}
+		if(!empty($selectedfilm) and !empty($selectedposition) and !empty($selectedperson)){
+			$selectedfilm = intval($_POST["filminput"]);
+			$selectedperson = intval($_POST["filmpersoninput"]);
+			$selectedposition = intval($_POST["filmpositioninput"]);
+			$positionnotice = storenewpositionrelation($selectedperson, $selectedfilm, $selectedposition);
+	}
+  }
+  
  $filmselecthtml = readmovietoselect($selectedfilm);
  $filmgenreselecthtml = readgenretoselect($selectedgenre);
  $filmstudioselecthtml = readstudiotoselect($selectedstudio);
+ $filmpersonselecthtml = readpersontoselect($selectedperson);
+ $filmpositionselecthtml = readpositiontoselect($selectedposition);
  
 require("header.php");
 ?>
@@ -84,5 +115,15 @@ require("header.php");
 	?>	
 	<input type="submit" name="filmgenrerelationsubmit" value="Salvesta filmiinfo"><span><?php echo $genrenotice; ?></span>
   </form>  
+  <h2>Lisame inimesele rolli filmis</h2>
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <?php
+		echo $filmselecthtml;
+		echo $filmpersonselecthtml;
+		echo $filmpositionselecthtml;
+	?>	
+	<input type="submit" name="filmpositionrelationsubmit" value="Salvesta filmiinfo"><span><?php echo $positionnotice; ?></span>
+  </form>
+  <p><?php echo intval($_POST["filmpositioninput"]);?></p>
 </body>
 </html>
