@@ -42,6 +42,7 @@
 	 <li><a href="addfilmrelations.php">Filmiinfo seoste lisamine</a></li>
 	 <li><a href="filmidenimpersons.php">Inimesed filmides</a></li>
 	 <li><a href="userprofile.php">Minu kasutajaprofiil</a></li>
+	 <li><a href="photoupload.php">Galeriipiltide üleslaadimine</a></li>
 </ul>
 <hr>
 <?php echo $imghtml; ?>
